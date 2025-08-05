@@ -1,9 +1,23 @@
 {
     "title": "Technology & Innovation",
-    "date": "2025-01-05 12:00:00 +0000 UTC",
+    "date": "2025-01-12 14:00:00 +0000 UTC",
     "permalink" : "https://outlieralphaventures.com/philosophy-tech/",
     "pages": [
         {
+            "title": "Beyond ZIRP: Understanding Venture Market Cycles and Capital Allocation",
+            "date": "2025-01-12 14:00:00 +0000 UTC",
+            "permalink" : "https://outlieralphaventures.com/philosophy-tech/zirp-era-venture-market-cycles-analysis/",
+            "summary": "Beyond ZIRP: Understanding Venture Market Cycles and Capital Allocation Bottom Line: The end of the Zero Interest Rate Policy (ZIRP) era has fundamentally reset venture capital dynamics, requiring entrepreneurs to focus on capital efficiency and sustainable growth rather than rapid scaling. Understanding these cycles is crucial for both founders and investors navigating the current market environment.
+Historical Context: Venture Market Cycles The Pattern of Funding Droughts Historical Precedents (Last 25 Years):
+"
+        },{
+            "title": "Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure",
+            "date": "2025-01-10 10:00:00 +0000 UTC",
+            "permalink" : "https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-protocol-analysis/",
+            "summary": "Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure Bottom Line: Model Control Protocol (MCP) represents a potential &ldquo;HTTP moment&rdquo; for AI, providing universal connectivity between AI models, tools, and data sources. While this democratizes AI application development, it threatens individual AI service businesses while creating massive opportunities for sophisticated implementation and data integration platforms.
+Understanding MCP: The Universal AI Connector Protocol Architecture Core Function: MCP serves as a standardization layer enabling seamless integration across:
+"
+        },{
             "title": "AI + MCP Protocol: The New Infrastructure Layer for Agentic Businesses",
             "date": "2025-01-05 12:00:00 +0000 UTC",
             "permalink" : "https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-analysis/",
