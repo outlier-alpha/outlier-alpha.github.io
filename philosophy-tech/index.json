@@ -1,44 +1,13 @@
-{
-    "title": "Technology & Innovation",
-    "date": "2025-01-12 14:00:00 +0000 UTC",
-    "permalink" : "https://outlieralphaventures.com/philosophy-tech/",
-    "pages": [
-        {
-            "title": "Beyond ZIRP: Understanding Venture Market Cycles and Capital Allocation",
-            "date": "2025-01-12 14:00:00 +0000 UTC",
-            "permalink" : "https://outlieralphaventures.com/philosophy-tech/zirp-era-venture-market-cycles-analysis/",
-            "summary": "Beyond ZIRP: Understanding Venture Market Cycles and Capital Allocation Bottom Line: The end of the Zero Interest Rate Policy (ZIRP) era has fundamentally reset venture capital dynamics, requiring entrepreneurs to focus on capital efficiency and sustainable growth rather than rapid scaling. Understanding these cycles is crucial for both founders and investors navigating the current market environment.
+{"title":"Technology & Innovation","date":"2025-01-12 14:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/philosophy-tech/","pages":[{"title":"Beyond ZIRP: Understanding Venture Market Cycles and Capital Allocation","date":"2025-01-12 14:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/philosophy-tech/zirp-era-venture-market-cycles-analysis/","summary":"Beyond ZIRP: Understanding Venture Market Cycles and Capital Allocation Bottom Line: The end of the Zero Interest Rate Policy (ZIRP) era has fundamentally reset venture capital dynamics, requiring entrepreneurs to focus on capital efficiency and sustainable growth rather than rapid scaling. Understanding these cycles is crucial for both founders and investors navigating the current market environment.
 Historical Context: Venture Market Cycles The Pattern of Funding Droughts Historical Precedents (Last 25 Years):
-"
-        },{
-            "title": "Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure",
-            "date": "2025-01-10 10:00:00 +0000 UTC",
-            "permalink" : "https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-protocol-analysis/",
-            "summary": "Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure Bottom Line: Model Control Protocol (MCP) represents a potential &ldquo;HTTP moment&rdquo; for AI, providing universal connectivity between AI models, tools, and data sources. While this democratizes AI application development, it threatens individual AI service businesses while creating massive opportunities for sophisticated implementation and data integration platforms.
+"},{"title":"Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure","date":"2025-01-10 10:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-protocol-analysis/","summary":"Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure Bottom Line: Model Control Protocol (MCP) represents a potential &ldquo;HTTP moment&rdquo; for AI, providing universal connectivity between AI models, tools, and data sources. While this democratizes AI application development, it threatens individual AI service businesses while creating massive opportunities for sophisticated implementation and data integration platforms.
 Understanding MCP: The Universal AI Connector Protocol Architecture Core Function: MCP serves as a standardization layer enabling seamless integration across:
-"
-        },{
-            "title": "AI + MCP Protocol: The New Infrastructure Layer for Agentic Businesses",
-            "date": "2025-01-05 12:00:00 +0000 UTC",
-            "permalink" : "https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-analysis/",
-            "summary": "AI + MCP Protocol: The New Infrastructure Layer for Agentic Businesses Bottom Line: Model Control Protocol (MCP) represents a potential &ldquo;HTTP moment&rdquo; for AI, creating universal connectivity between LLMs, tools, and data sources. This could commoditize many current AI service businesses while creating massive opportunities for infrastructure and aggregation layers.
+"},{"title":"AI + MCP Protocol: The New Infrastructure Layer for Agentic Businesses","date":"2025-01-05 12:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-analysis/","summary":"AI + MCP Protocol: The New Infrastructure Layer for Agentic Businesses Bottom Line: Model Control Protocol (MCP) represents a potential &ldquo;HTTP moment&rdquo; for AI, creating universal connectivity between LLMs, tools, and data sources. This could commoditize many current AI service businesses while creating massive opportunities for infrastructure and aggregation layers.
 What is Model Control Protocol (MCP)? MCP serves as a standardized connector layer that sits between:
 LLM applications (Claude, ChatGPT, custom AI agents) Data sources (databases, APIs, file systems) Tools and services (productivity apps, analysis tools, automation platforms) Think of MCP as creating universal &ldquo;pipes&rdquo; that allow any AI agent to connect to any data source or tool, regardless of the underlying technology stack.
-"
-        },{
-            "title": "AI in Investment Analysis: The New Alpha Generation",
-            "date": "2024-12-05 00:00:00 +0000 UTC",
-            "permalink" : "https://outlieralphaventures.com/philosophy-tech/ai-investment-analysis-alpha-generation/",
-            "summary": "AI in Investment Analysis: The New Alpha Generation Bottom Line: AI-powered investment analysis is transitioning from experimental to essential, with AI analysts demonstrating ability to outperform human fund managers by 600%+ through superior information processing and pattern recognition. The competitive advantage lies not in AI adoption itself, but in implementation sophistication and data integration quality.
+"},{"title":"AI in Investment Analysis: The New Alpha Generation","date":"2024-12-05 00:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/philosophy-tech/ai-investment-analysis-alpha-generation/","summary":"AI in Investment Analysis: The New Alpha Generation Bottom Line: AI-powered investment analysis is transitioning from experimental to essential, with AI analysts demonstrating ability to outperform human fund managers by 600%+ through superior information processing and pattern recognition. The competitive advantage lies not in AI adoption itself, but in implementation sophistication and data integration quality.
 The AI Investment Revolution Performance Breakthrough Evidence Recent Stanford research revealed striking results: an AI analyst, using only public information, outperformed 93% of mutual fund managers with average excess returns of 600% over a 30-year backtesting period.
-"
-        },{
-            "title": "Model Control Protocol: The HTTP Moment for AI",
-            "date": "2024-12-05 00:00:00 +0000 UTC",
-            "permalink" : "https://outlieralphaventures.com/philosophy-tech/model-control-protocol-ai-http-moment/",
-            "summary": "Model Control Protocol: The HTTP Moment for AI Bottom Line: Model Control Protocol (MCP) represents a foundational shift in AI development - similar to how HTTP standardized web communication. This could disrupt current AI service businesses while creating massive opportunities for aggregation layer builders.
+"},{"title":"Model Control Protocol: The HTTP Moment for AI","date":"2024-12-05 00:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/philosophy-tech/model-control-protocol-ai-http-moment/","summary":"Model Control Protocol: The HTTP Moment for AI Bottom Line: Model Control Protocol (MCP) represents a foundational shift in AI development - similar to how HTTP standardized web communication. This could disrupt current AI service businesses while creating massive opportunities for aggregation layer builders.
 What is Model Control Protocol? MCP acts as a universal connector sitting between:
 🔧 Tools &amp; Data Sources 🤖 LLM Applications 💻 Development Environments (like Cursor) Think of it as the HTTP of AI - a standardized protocol layer that enables seamless connectivity across the AI stack.
-"
-        }]
-}
+"}]}

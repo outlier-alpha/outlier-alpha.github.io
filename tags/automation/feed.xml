@@ -1,33 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Automation on Outlier Alpha - Strategic Investment Research</title>
-    <link>https://outlieralphaventures.com/tags/automation/</link>
-    <description>Recent content in Automation on Outlier Alpha - Strategic Investment Research</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 10 Jan 2025 10:00:00 +0000</lastBuildDate>
-    <atom:link href="https://outlieralphaventures.com/tags/automation/feed.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure</title>
-      <link>https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-protocol-analysis/</link>
-      <pubDate>Fri, 10 Jan 2025 10:00:00 +0000</pubDate>
-      <guid>https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-protocol-analysis/</guid>
-      <description>&lt;h1 id=&#34;model-control-protocol-mcp-the-http-moment-for-ai-infrastructure&#34;&gt;Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Bottom Line&lt;/strong&gt;: Model Control Protocol (MCP) represents a potential &amp;ldquo;HTTP moment&amp;rdquo; for AI, providing universal connectivity between AI models, tools, and data sources. While this democratizes AI application development, it threatens individual AI service businesses while creating massive opportunities for sophisticated implementation and data integration platforms.&lt;/p&gt;&#xA;&lt;h2 id=&#34;understanding-mcp-the-universal-ai-connector&#34;&gt;&lt;strong&gt;Understanding MCP: The Universal AI Connector&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;protocol-architecture&#34;&gt;&lt;strong&gt;Protocol Architecture&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Core Function&lt;/strong&gt;: MCP serves as a standardization layer enabling seamless integration across:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AI &#43; MCP Protocol: The New Infrastructure Layer for Agentic Businesses</title>
-      <link>https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-analysis/</link>
-      <pubDate>Sun, 05 Jan 2025 12:00:00 +0000</pubDate>
-      <guid>https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-analysis/</guid>
-      <description>&lt;h1 id=&#34;ai--mcp-protocol-the-new-infrastructure-layer-for-agentic-businesses&#34;&gt;AI + MCP Protocol: The New Infrastructure Layer for Agentic Businesses&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Bottom Line&lt;/strong&gt;: Model Control Protocol (MCP) represents a potential &amp;ldquo;HTTP moment&amp;rdquo; for AI, creating universal connectivity between LLMs, tools, and data sources. This could commoditize many current AI service businesses while creating massive opportunities for infrastructure and aggregation layers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-model-control-protocol-mcp&#34;&gt;What is Model Control Protocol (MCP)?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;MCP&lt;/strong&gt; serves as a standardized connector layer that sits between:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;LLM applications&lt;/strong&gt; (Claude, ChatGPT, custom AI agents)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Data sources&lt;/strong&gt; (databases, APIs, file systems)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tools and services&lt;/strong&gt; (productivity apps, analysis tools, automation platforms)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Think of MCP as creating universal &amp;ldquo;pipes&amp;rdquo; that allow any AI agent to connect to any data source or tool, regardless of the underlying technology stack.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Model Control Protocol: The HTTP Moment for AI</title>
-      <link>https://outlieralphaventures.com/philosophy-tech/model-control-protocol-ai-http-moment/</link>
-      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://outlieralphaventures.com/philosophy-tech/model-control-protocol-ai-http-moment/</guid>
-      <description>&lt;h1 id=&#34;model-control-protocol-the-http-moment-for-ai&#34;&gt;Model Control Protocol: The HTTP Moment for AI&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Bottom Line&lt;/strong&gt;: Model Control Protocol (MCP) represents a foundational shift in AI development - similar to how HTTP standardized web communication. This could disrupt current AI service businesses while creating massive opportunities for aggregation layer builders.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-model-control-protocol&#34;&gt;What is Model Control Protocol?&lt;/h2&gt;&#xA;&lt;p&gt;MCP acts as a &lt;strong&gt;universal connector&lt;/strong&gt; sitting between:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🔧 &lt;strong&gt;Tools &amp;amp; Data Sources&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;🤖 &lt;strong&gt;LLM Applications&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;💻 &lt;strong&gt;Development Environments&lt;/strong&gt; (like Cursor)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Think of it as the &lt;strong&gt;HTTP of AI&lt;/strong&gt; - a standardized protocol layer that enables seamless connectivity across the AI stack.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Automation on Outlier Alpha - Strategic Investment Research</title><link>https://outlieralphaventures.com/tags/automation/</link><description>Recent content in Automation on Outlier Alpha - Strategic Investment Research</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 10 Jan 2025 10:00:00 +0000</lastBuildDate><atom:link href="https://outlieralphaventures.com/tags/automation/feed.xml" rel="self" type="application/rss+xml"/><item><title>Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure</title><link>https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-protocol-analysis/</link><pubDate>Fri, 10 Jan 2025 10:00:00 +0000</pubDate><guid>https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-protocol-analysis/</guid><description>&lt;h1 id="model-control-protocol-mcp-the-http-moment-for-ai-infrastructure">Model Control Protocol (MCP): The HTTP Moment for AI Infrastructure&lt;/h1>
+&lt;p>&lt;strong>Bottom Line&lt;/strong>: Model Control Protocol (MCP) represents a potential &amp;ldquo;HTTP moment&amp;rdquo; for AI, providing universal connectivity between AI models, tools, and data sources. While this democratizes AI application development, it threatens individual AI service businesses while creating massive opportunities for sophisticated implementation and data integration platforms.&lt;/p>
+&lt;h2 id="understanding-mcp-the-universal-ai-connector">&lt;strong>Understanding MCP: The Universal AI Connector&lt;/strong>&lt;/h2>
+&lt;h3 id="protocol-architecture">&lt;strong>Protocol Architecture&lt;/strong>&lt;/h3>
+&lt;p>&lt;strong>Core Function&lt;/strong>: MCP serves as a standardization layer enabling seamless integration across:&lt;/p></description></item><item><title>AI + MCP Protocol: The New Infrastructure Layer for Agentic Businesses</title><link>https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-analysis/</link><pubDate>Sun, 05 Jan 2025 12:00:00 +0000</pubDate><guid>https://outlieralphaventures.com/philosophy-tech/mcp-ai-infrastructure-analysis/</guid><description>&lt;h1 id="ai--mcp-protocol-the-new-infrastructure-layer-for-agentic-businesses">AI + MCP Protocol: The New Infrastructure Layer for Agentic Businesses&lt;/h1>
+&lt;p>&lt;strong>Bottom Line&lt;/strong>: Model Control Protocol (MCP) represents a potential &amp;ldquo;HTTP moment&amp;rdquo; for AI, creating universal connectivity between LLMs, tools, and data sources. This could commoditize many current AI service businesses while creating massive opportunities for infrastructure and aggregation layers.&lt;/p>
+&lt;h2 id="what-is-model-control-protocol-mcp">What is Model Control Protocol (MCP)?&lt;/h2>
+&lt;p>&lt;strong>MCP&lt;/strong> serves as a standardized connector layer that sits between:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>LLM applications&lt;/strong> (Claude, ChatGPT, custom AI agents)&lt;/li>
+&lt;li>&lt;strong>Data sources&lt;/strong> (databases, APIs, file systems)&lt;/li>
+&lt;li>&lt;strong>Tools and services&lt;/strong> (productivity apps, analysis tools, automation platforms)&lt;/li>
+&lt;/ul>
+&lt;p>Think of MCP as creating universal &amp;ldquo;pipes&amp;rdquo; that allow any AI agent to connect to any data source or tool, regardless of the underlying technology stack.&lt;/p></description></item><item><title>Model Control Protocol: The HTTP Moment for AI</title><link>https://outlieralphaventures.com/philosophy-tech/model-control-protocol-ai-http-moment/</link><pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate><guid>https://outlieralphaventures.com/philosophy-tech/model-control-protocol-ai-http-moment/</guid><description>&lt;h1 id="model-control-protocol-the-http-moment-for-ai">Model Control Protocol: The HTTP Moment for AI&lt;/h1>
+&lt;p>&lt;strong>Bottom Line&lt;/strong>: Model Control Protocol (MCP) represents a foundational shift in AI development - similar to how HTTP standardized web communication. This could disrupt current AI service businesses while creating massive opportunities for aggregation layer builders.&lt;/p>
+&lt;h2 id="what-is-model-control-protocol">What is Model Control Protocol?&lt;/h2>
+&lt;p>MCP acts as a &lt;strong>universal connector&lt;/strong> sitting between:&lt;/p>
+&lt;ul>
+&lt;li>🔧 &lt;strong>Tools &amp;amp; Data Sources&lt;/strong>&lt;/li>
+&lt;li>🤖 &lt;strong>LLM Applications&lt;/strong>&lt;/li>
+&lt;li>💻 &lt;strong>Development Environments&lt;/strong> (like Cursor)&lt;/li>
+&lt;/ul>
+&lt;p>Think of it as the &lt;strong>HTTP of AI&lt;/strong> - a standardized protocol layer that enables seamless connectivity across the AI stack.&lt;/p></description></item></channel></rss>

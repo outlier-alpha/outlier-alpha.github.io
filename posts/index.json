@@ -1,29 +1,8 @@
-{
-    "title": "Posts",
-    "date": "2025-01-20 11:00:00 +0000 UTC",
-    "permalink" : "https://outlieralphaventures.com/posts/",
-    "pages": [
-        {
-            "title": "Fintech Fundraising Revival: Q4 2024 - Q1 2025 Analysis",
-            "date": "2025-01-20 11:00:00 +0000 UTC",
-            "permalink" : "https://outlieralphaventures.com/posts/fintech-fundraising-revival-2025/",
-            "summary": "Fintech Fundraising Revival: Q4 2024 - Q1 2025 Analysis Bottom Line: After a challenging 2023-early 2024 period, fintech fundraising has shown strong recovery with $2B+ deployed globally in Q4 2024. Key themes include B2B infrastructure, regulated entities, and vertical-specific solutions, while consumer lending remains challenged.
+{"title":"Posts","date":"2025-01-20 11:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/posts/","pages":[{"title":"Fintech Fundraising Revival: Q4 2024 - Q1 2025 Analysis","date":"2025-01-20 11:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/posts/fintech-fundraising-revival-2025/","summary":"Fintech Fundraising Revival: Q4 2024 - Q1 2025 Analysis Bottom Line: After a challenging 2023-early 2024 period, fintech fundraising has shown strong recovery with $2B+ deployed globally in Q4 2024. Key themes include B2B infrastructure, regulated entities, and vertical-specific solutions, while consumer lending remains challenged.
 Market Recovery Overview Fundraising Momentum Returns Q4 2024 Highlights: Action picked up significantly after a slow start to the year, with notable deals across multiple categories:
-"
-        },{
-            "title": "Early Stage Investment Framework: From Market Context to Returns",
-            "date": "2025-01-15 10:00:00 +0000 UTC",
-            "permalink" : "https://outlieralphaventures.com/posts/early-stage-investment-framework/",
-            "summary": "Early Stage Investment Framework: From Market Context to Returns Bottom Line: Successful early-stage investing requires systematic evaluation across four key dimensions: market context, sectoral advantages, business model fundamentals, and founding team capabilities. This framework has guided investment decisions across $50M+ in capital deployment.
+"},{"title":"Early Stage Investment Framework: From Market Context to Returns","date":"2025-01-15 10:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/posts/early-stage-investment-framework/","summary":"Early Stage Investment Framework: From Market Context to Returns Bottom Line: Successful early-stage investing requires systematic evaluation across four key dimensions: market context, sectoral advantages, business model fundamentals, and founding team capabilities. This framework has guided investment decisions across $50M+ in capital deployment.
 Framework Overview Any startup investment thesis needs validation through Product-Market-Fit experiments, but the underlying evaluation framework must be systematic. Here&rsquo;s the structured approach I use for deconstructing investment decisions:
-"
-        },{
-            "title": "India's Travel Tech Inflection Point: $80B+ TAM Analysis",
-            "date": "2025-01-10 15:00:00 +0000 UTC",
-            "permalink" : "https://outlieralphaventures.com/posts/india-travel-tech-inflection-analysis/",
-            "summary": "India&rsquo;s Travel Tech Inflection Point: $80B+ TAM Analysis Bottom Line: India&rsquo;s travel sector is experiencing a unique structural inflection with 90M+ passport holders driving international travel from luxury to routine family activity. The $80-100B TAM presents multiple investment opportunities beyond traditional OTAs, particularly in fintech, experiences, and B2B infrastructure.
+"},{"title":"India's Travel Tech Inflection Point: $80B+ TAM Analysis","date":"2025-01-10 15:00:00 +0000 UTC","permalink":"https://outlieralphaventures.com/posts/india-travel-tech-inflection-analysis/","summary":"India&rsquo;s Travel Tech Inflection Point: $80B+ TAM Analysis Bottom Line: India&rsquo;s travel sector is experiencing a unique structural inflection with 90M+ passport holders driving international travel from luxury to routine family activity. The $80-100B TAM presents multiple investment opportunities beyond traditional OTAs, particularly in fintech, experiences, and B2B infrastructure.
 Market Size &amp; Structural Drivers Quantifying the Opportunity Total Addressable Market: $80-100 billion annually
 Domestic travel: Growing 15-20% YoY post-pandemic International travel: 90M+ passport holders, expanding beyond metros Business travel: Largest unorganized segment with single-digit OTA penetration Experience economy: 75% of Coldplay tickets booked from outside Mumbai Key Structural Shifts 1. International Travel Democratization
-"
-        }]
-}
+"}]}

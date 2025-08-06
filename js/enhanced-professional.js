@@ -568,44 +568,127 @@
         }
     };
     
-    // Search Functionality
-    const search = {
+    // Blog Post Enhancement Features
+    const blogEnhancements = {
         init: () => {
-            const searchInput = document.querySelector('#search-input');
-            if (!searchInput) return;
-            
-            searchInput.addEventListener('input', utils.debounce(search.handleSearch, 300));
+            blogEnhancements.enhanceCodeBlocks();
+            blogEnhancements.addImageLightbox();
+            blogEnhancements.improveTableResponsiveness();
+            blogEnhancements.addSmoothScrolling();
         },
         
-        handleSearch: (e) => {
-            const query = e.target.value.trim();
-            if (query.length < 2) return;
-            
-            analytics.track('search', { query });
-            
-            // Simple search implementation
-            search.performSearch(query);
-        },
-        
-        performSearch: (query) => {
-            // Simple search through page content
-            const searchTerms = query.toLowerCase().split(' ');
-            const results = [];
-            
-            // Search through navigation links
-            elements.navLinks.forEach(link => {
-                const text = link.textContent.toLowerCase();
-                if (searchTerms.some(term => text.includes(term))) {
-                    results.push({
-                        title: link.textContent.trim(),
-                        url: link.href,
-                        type: 'page'
-                    });
+        enhanceCodeBlocks: () => {
+            document.querySelectorAll('pre code').forEach((block, index) => {
+                // Add language indicator if available
+                const language = block.className.match(/language-([\w-]+)/);
+                if (language) {
+                    const indicator = document.createElement('div');
+                    indicator.className = 'code-language-indicator';
+                    indicator.textContent = language[1].toUpperCase();
+                    indicator.style.cssText = `
+                        position: absolute;
+                        top: 8px;
+                        left: 12px;
+                        font-size: 10px;
+                        background: rgba(255,255,255,0.1);
+                        color: rgba(255,255,255,0.7);
+                        padding: 2px 6px;
+                        border-radius: 3px;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        letter-spacing: 0.5px;
+                    `;
+                    block.parentNode.style.position = 'relative';
+                    block.parentNode.appendChild(indicator);
+                }
+                
+                // Add line numbers for longer code blocks
+                const lines = block.textContent.split('\n');
+                if (lines.length > 5) {
+                    block.classList.add('has-line-numbers');
                 }
             });
-            
-            console.log('Search results:', results);
-            // Implement search results display here
+        },
+        
+        addImageLightbox: () => {
+            document.querySelectorAll('.post-content img').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    const lightbox = document.createElement('div');
+                    lightbox.className = 'image-lightbox';
+                    lightbox.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0,0,0,0.8);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 10000;
+                        cursor: pointer;
+                    `;
+                    
+                    const lightboxImg = document.createElement('img');
+                    lightboxImg.src = this.src;
+                    lightboxImg.alt = this.alt;
+                    lightboxImg.style.cssText = `
+                        max-width: 90%;
+                        max-height: 90%;
+                        object-fit: contain;
+                        border-radius: 8px;
+                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+                    `;
+                    
+                    lightbox.appendChild(lightboxImg);
+                    document.body.appendChild(lightbox);
+                    
+                    lightbox.addEventListener('click', () => {
+                        document.body.removeChild(lightbox);
+                    });
+                    
+                    analytics.track('image_view', { src: this.src });
+                });
+            });
+        },
+        
+        improveTableResponsiveness: () => {
+            document.querySelectorAll('.post-content table').forEach(table => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'table-wrapper';
+                wrapper.style.cssText = `
+                    overflow-x: auto;
+                    margin: var(--space-8) 0;
+                    border-radius: var(--border-radius);
+                    box-shadow: var(--shadow-sm);
+                `;
+                
+                table.parentNode.insertBefore(wrapper, table);
+                wrapper.appendChild(table);
+            });
+        },
+        
+        addSmoothScrolling: () => {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    
+                    if (target) {
+                        const offset = 80; // Account for fixed header
+                        const targetPosition = target.offsetTop - offset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        analytics.track('anchor_scroll', { target: targetId });
+                    }
+                });
+            });
         }
     };
     
@@ -626,7 +709,7 @@
             performance.init();
             theme.init();
             errorHandler.init();
-            search.init();
+            blogEnhancements.init();
             
             // Add custom animations
             app.addCustomAnimations();
