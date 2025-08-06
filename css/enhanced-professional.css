@@ -1352,6 +1352,15 @@ a:focus {
     height: 4rem;
 }
 
+/* Logo image styling */
+.logo-image {
+    width: 120px;
+    height: auto;
+    border-radius: 0;
+    display: block;
+    margin: 0 auto;
+}
+
 /* Experience section */
 .experience-section {
     text-align: center;
