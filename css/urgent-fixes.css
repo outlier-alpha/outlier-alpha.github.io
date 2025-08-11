@@ -1,0 +1,144 @@
+/* COMPLETE DESIGN FIXES FOR OUTLIER ALPHA WEBSITE */
+
+/* Logo Fix */
+.profile-avatar img {
+    width: 72px !important;
+    height: 72px !important;
+    object-fit: contain !important;
+    border-radius: 50% !important;
+    background: #f8fafc !important;
+    padding: 8px !important;
+    border: 2px solid #e2e8f0 !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+/* Toggle Button Fix */
+.sidebar-toggle {
+    position: absolute !important;
+    top: 1rem !important;
+    right: -15px !important;
+    width: 30px !important;
+    height: 30px !important;
+    background: #2563eb !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    z-index: 1001 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 11px !important;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3) !important;
+    transition: all 0.2s ease !important;
+}
+
+.sidebar-toggle:hover {
+    background: #1d4ed8 !important;
+    transform: scale(1.05) !important;
+}
+
+/* Hashtag Fixes */
+.hashtag-link {
+    background: #f8fafc !important;
+    color: #64748b !important;
+    padding: 0.3rem 0.6rem !important;
+    border-radius: 14px !important;
+    font-size: 0.7rem !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid #e5e7eb !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+}
+
+.hashtag-link:hover {
+    background: #2563eb !important;
+    color: white !important;
+    border-color: #2563eb !important;
+}
+
+/* Navigation Fixes */
+.nav-link {
+    padding: 0.7rem 0.875rem !important;
+    font-size: 0.85rem !important;
+    gap: 0.75rem !important;
+}
+
+.nav-link i {
+    width: 16px !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+}
+
+/* Sidebar Layout */
+.sidebar {
+    width: 320px !important;
+    transition: width 0.3s ease !important;
+}
+
+.sidebar.minimized {
+    width: 64px !important;
+}
+
+.main-wrapper {
+    margin-left: 320px !important;
+    transition: margin-left 0.3s ease !important;
+}
+
+.main-wrapper.sidebar-minimized {
+    margin-left: 64px !important;
+}
+
+/* Credentials Section */
+.education-credentials {
+    background: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.5rem !important;
+    padding: 0.75rem !important;
+    margin: 0.75rem 0 1rem 0 !important;
+}
+
+.credential-group {
+    font-size: 0.7rem !important;
+    color: #374151 !important;
+    margin-bottom: 0.4rem !important;
+}
+
+.credential-group i {
+    color: #2563eb !important;
+    font-size: 0.7rem !important;
+    width: 10px !important;
+}
+
+/* Widget Styling */
+.market-widget,
+.updates-widget,
+.resources-preview {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.625rem !important;
+    padding: 0.875rem !important;
+    margin-bottom: 1.25rem !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .main-wrapper {
+        margin-left: 0 !important;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%) !important;
+        position: fixed !important;
+        z-index: 1000 !important;
+    }
+    
+    .sidebar-toggle {
+        display: none !important;
+    }
+}
