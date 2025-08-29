@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Outlier Alpha - Strategic Investment Research"
 theme = "custom-minimal"
 
+
 # Hugo Configuration
 enableRobotsTXT = true
 enableGitInfo = true

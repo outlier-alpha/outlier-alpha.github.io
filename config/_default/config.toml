@@ -1,0 +1,6 @@
+[permalinks]
+  posts = "/posts/:slug/"
+  philosophy-tech = "/philosophy-tech/:slug/"
+  public-equity-investments = "/public-equity-investments/:slug/"
+  sector-research = "/sector-research/:slug/"
+
