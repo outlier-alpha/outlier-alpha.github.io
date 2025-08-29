@@ -1,0 +1,716 @@
+/* COMPLETE DESIGN FIX FOR OUTLIER ALPHA WEBSITE - PART 2 */
+
+.social-link:hover {
+    transform: translateX(2px) !important;
+    box-shadow: var(--box-shadow) !important;
+}
+
+.social-link i {
+    font-size: 0.875rem !important;
+    width: 16px !important;
+    text-align: center !important;
+    flex-shrink: 0 !important;
+}
+
+.social-stat {
+    margin-left: auto !important;
+    font-size: 0.75rem !important;
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+}
+
+/* Social link hover colors */
+.social-link.linkedin:hover {
+    background: rgba(10, 102, 194, 0.1) !important;
+    color: #0a66c2 !important;
+    border-color: #0a66c2 !important;
+}
+
+.social-link.twitter:hover {
+    background: rgba(29, 161, 242, 0.1) !important;
+    color: #1da1f2 !important;
+    border-color: #1da1f2 !important;
+}
+
+.social-link.youtube:hover {
+    background: rgba(255, 0, 0, 0.1) !important;
+    color: #ff0000 !important;
+    border-color: #ff0000 !important;
+}
+
+.social-link.contact:hover {
+    background: rgba(16, 185, 129, 0.1) !important;
+    color: #10b981 !important;
+    border-color: #10b981 !important;
+}
+
+/* ====================================
+   11. AI ASSISTANT WIDGET FIXES
+   ==================================== */
+.ai-assistant-widget {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+}
+
+.ai-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+.ai-header h4 {
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    color: white !important;
+}
+
+.ai-description {
+    margin-bottom: 12px !important;
+    opacity: 0.9 !important;
+    font-size: 0.75rem !important;
+    text-align: center !important;
+}
+
+.ai-trigger-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    font-size: 0.75rem !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+.ai-trigger-btn:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ====================================
+   12. RESOURCE ITEMS FIXES
+   ==================================== */
+.resource-links {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.resource-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 8px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    color: var(--text-secondary) !important;
+    font-size: 0.875rem !important;
+    transition: all 0.2s ease !important;
+    background: var(--card-background) !important;
+}
+
+.resource-item:hover {
+    background: #f3f4f6 !important;
+    color: var(--text-primary) !important;
+    transform: translateX(2px) !important;
+}
+
+.resource-item i {
+    color: var(--primary-color) !important;
+    font-size: 0.875rem !important;
+    width: 16px !important;
+    text-align: center !important;
+    flex-shrink: 0 !important;
+}
+
+/* ====================================
+   13. MARKET INDICATORS FIXES
+   ==================================== */
+.market-indicators {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.indicator {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 0.75rem !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+}
+
+.indicator:last-child {
+    border-bottom: none !important;
+}
+
+.indicator-label {
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+}
+
+.indicator-value {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+.indicator-change {
+    font-weight: 600 !important;
+    font-size: 0.75rem !important;
+}
+
+.indicator-change.positive {
+    color: #059669 !important;
+}
+
+.indicator-change.negative {
+    color: #dc2626 !important;
+}
+
+/* Live indicator */
+.live-indicator {
+    width: 6px !important;
+    height: 6px !important;
+    background: #059669 !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+    margin-left: 8px !important;
+    animation: pulse-dot 2s infinite !important;
+}
+
+@keyframes pulse-dot {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Market footer */
+.market-footer {
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid var(--border-color) !important;
+    text-align: center !important;
+}
+
+.market-footer small {
+    color: var(--text-muted) !important;
+    font-size: 0.625rem !important;
+    line-height: 1.2 !important;
+}
+
+/* ====================================
+   14. UPDATE WIDGET FIXES
+   ==================================== */
+.update-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.update-item {
+    border-left: 2px solid var(--primary-color) !important;
+    padding-left: 12px !important;
+}
+
+.update-meta {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 4px !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+}
+
+.update-date {
+    font-size: 0.75rem !important;
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+}
+
+.update-category {
+    font-size: 0.625rem !important;
+    background: #f3f4f6 !important;
+    color: var(--text-secondary) !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.025em !important;
+    font-weight: 500 !important;
+}
+
+.update-title {
+    margin: 0 !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+}
+
+.update-title a {
+    color: var(--text-primary) !important;
+    text-decoration: none !important;
+}
+
+.update-title a:hover {
+    color: var(--primary-color) !important;
+}
+
+.view-all-link {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid var(--border-color) !important;
+    color: var(--primary-color) !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+}
+
+.view-all-link:hover {
+    color: #1d4ed8 !important;
+}
+
+/* ====================================
+   15. FOOTER FIXES
+   ==================================== */
+.sidebar-footer {
+    margin-top: auto !important;
+    padding-top: 16px !important;
+    border-top: 1px solid var(--border-color) !important;
+}
+
+.disclaimer-mini {
+    text-align: center !important;
+    color: var(--text-muted) !important;
+    line-height: 1.3 !important;
+    font-size: 0.75rem !important;
+}
+
+/* ====================================
+   16. RESPONSIVE DESIGN FIXES
+   ==================================== */
+@media (max-width: 1024px) {
+    .main-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .main-wrapper.sidebar-minimized {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%) !important;
+        position: fixed !important;
+        z-index: 1000 !important;
+        height: 100vh !important;
+    }
+    
+    .sidebar.mobile-visible {
+        transform: translateX(0) !important;
+    }
+    
+    .sidebar.minimized {
+        transform: translateX(-100%) !important;
+    }
+    
+    .sidebar-toggle {
+        display: none !important;
+    }
+    
+    .mobile-menu-toggle {
+        display: block !important;
+        position: fixed !important;
+        top: 16px !important;
+        left: 16px !important;
+        z-index: 1001 !important;
+        background: var(--card-background) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: 8px !important;
+        padding: 12px !important;
+        cursor: pointer !important;
+        box-shadow: var(--box-shadow) !important;
+        transition: all 0.2s ease !important;
+    }
+    
+    .mobile-menu-toggle:hover {
+        background: var(--primary-color) !important;
+        color: white !important;
+    }
+    
+    .top-bar {
+        padding-left: 60px !important;
+    }
+    
+    .main-content {
+        padding: 24px 16px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 280px !important;
+    }
+    
+    .sidebar-content {
+        padding: 16px 12px !important;
+    }
+    
+    .profile-avatar .logo-image,
+    .profile-avatar img {
+        width: 64px !important;
+        height: 64px !important;
+    }
+    
+    .profile-name {
+        font-size: 1.125rem !important;
+    }
+    
+    .main-content {
+        padding: 20px 12px !important;
+    }
+    
+    .hashtag-container {
+        gap: 4px !important;
+    }
+    
+    .hashtag-link {
+        font-size: 0.6875rem !important;
+        padding: 4px 8px !important;
+        height: 24px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 260px !important;
+    }
+    
+    .education-credentials {
+        padding: 8px !important;
+    }
+    
+    .credential-group {
+        font-size: 0.6875rem !important;
+    }
+    
+    .nav-link {
+        padding: 10px 12px !important;
+        font-size: 0.8125rem !important;
+    }
+    
+    .market-widget,
+    .updates-widget,
+    .resources-preview,
+    .ai-assistant-widget {
+        padding: 12px !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .widget-title {
+        font-size: 0.8125rem !important;
+    }
+}
+
+/* ====================================
+   17. JAVASCRIPT INTEGRATION STYLES
+   ==================================== */
+.sidebar.transitioning {
+    overflow: hidden !important;
+}
+
+.sidebar-content.fade-out > *:not(.profile-section) {
+    opacity: 0 !important;
+    transition: opacity 0.15s ease !important;
+}
+
+.sidebar-content.fade-in > * {
+    opacity: 1 !important;
+    transition: opacity 0.15s ease 0.1s !important;
+}
+
+/* Loading states */
+.loading .nav-link {
+    background: #f3f4f6 !important;
+    color: transparent !important;
+    pointer-events: none !important;
+}
+
+.loading .hashtag-link {
+    background: #f3f4f6 !important;
+    color: transparent !important;
+    pointer-events: none !important;
+}
+
+/* ====================================
+   18. ANIMATION FIXES
+   ==================================== */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-item {
+    animation: slideInLeft 0.3s ease forwards !important;
+}
+
+.nav-item:nth-child(1) { animation-delay: 0.05s !important; }
+.nav-item:nth-child(2) { animation-delay: 0.1s !important; }
+.nav-item:nth-child(3) { animation-delay: 0.15s !important; }
+.nav-item:nth-child(4) { animation-delay: 0.2s !important; }
+
+.market-widget,
+.updates-widget,
+.resources-preview {
+    animation: fadeInUp 0.4s ease forwards !important;
+}
+
+.market-widget { animation-delay: 0.1s !important; }
+.updates-widget { animation-delay: 0.2s !important; }
+.resources-preview { animation-delay: 0.3s !important; }
+
+/* ====================================
+   19. ACCESSIBILITY FIXES
+   ==================================== */
+.nav-link:focus,
+.hashtag-link:focus,
+.social-link:focus,
+.sidebar-toggle:focus {
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+.sidebar-toggle:focus {
+    outline-color: white !important;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .nav-link {
+        border: 1px solid var(--text-secondary) !important;
+    }
+    
+    .hashtag-link {
+        border: 1px solid var(--text-secondary) !important;
+    }
+    
+    .social-link {
+        border: 1px solid var(--text-secondary) !important;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .sidebar {
+        transition: none !important;
+    }
+    
+    .main-wrapper {
+        transition: none !important;
+    }
+    
+    .nav-link:hover {
+        transform: none !important;
+    }
+    
+    .hashtag-link:hover {
+        transform: none !important;
+    }
+}
+
+/* ====================================
+   20. PRINT STYLES
+   ==================================== */
+@media print {
+    .sidebar,
+    .mobile-menu-toggle,
+    .sidebar-toggle {
+        display: none !important;
+    }
+    
+    .main-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .main-content {
+        padding: 0 !important;
+        max-width: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* ====================================
+   21. ERROR STATES & FALLBACKS
+   ==================================== */
+.logo-image-fallback {
+    width: 80px !important;
+    height: 80px !important;
+    background: var(--primary-color) !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    border: 2px solid var(--border-color) !important;
+}
+
+.nav-link-error {
+    background: rgba(220, 38, 38, 0.1) !important;
+    color: #dc2626 !important;
+    pointer-events: none !important;
+}
+
+/* ====================================
+   22. UTILITY CLASSES
+   ==================================== */
+.hidden {
+    display: none !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+}
+
+.opacity-0 {
+    opacity: 0 !important;
+}
+
+.opacity-50 {
+    opacity: 0.5 !important;
+}
+
+.opacity-100 {
+    opacity: 1 !important;
+}
+
+.pointer-events-none {
+    pointer-events: none !important;
+}
+
+.pointer-events-auto {
+    pointer-events: auto !important;
+}
+
+.transform-none {
+    transform: none !important;
+}
+
+/* ====================================
+   23. FINAL OVERRIDES & SAFETY
+   ==================================== */
+
+/* Ensure sidebar always has proper z-index */
+.sidebar {
+    z-index: 1000 !important;
+}
+
+.sidebar-toggle {
+    z-index: 1001 !important;
+}
+
+.mobile-menu-toggle {
+    z-index: 1002 !important;
+}
+
+/* Ensure proper box-sizing */
+.sidebar,
+.sidebar *,
+.main-wrapper,
+.main-wrapper * {
+    box-sizing: border-box !important;
+}
+
+/* Prevent text selection on interactive elements */
+.nav-link,
+.hashtag-link,
+.social-link,
+.sidebar-toggle,
+.mobile-menu-toggle {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+/* Ensure proper font rendering */
+.sidebar {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+/* Force hardware acceleration for smooth animations */
+.sidebar,
+.main-wrapper,
+.sidebar-toggle,
+.nav-link,
+.hashtag-link {
+    transform: translateZ(0) !important;
+    backface-visibility: hidden !important;
+    perspective: 1000px !important;
+}
+
+/* Ensure crisp logo rendering */
+.profile-avatar img,
+.logo-image {
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+}
+
+/* Final safety overrides */
+.sidebar.minimized .sidebar-content > .profile-section .profile-avatar {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.sidebar.minimized .sidebar-toggle {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* ====================================
+   END OF COMPLETE DESIGN FIX
+   ==================================== */

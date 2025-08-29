@@ -1,0 +1,274 @@
+{{ define "main" }}
+<div class="ci-content">
+    <div class="ci-header">
+        <h1>{{ .Title }}</h1>
+        <p class="ci-description">{{ .Description }}</p>
+    </div>
+    
+    <div class="ci-app-container">
+        <div id="competitive-intelligence-app">
+            <!-- React app will be rendered here -->
+        </div>
+    </div>
+    
+    <div class="ci-info">
+        <div class="content">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+
+<style>
+.ci-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.ci-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.ci-header h1 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.ci-description {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ci-app-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    margin-bottom: 4rem;
+    min-height: 800px;
+    overflow: hidden;
+}
+
+.ci-info {
+    border-top: 1px solid #eee;
+    padding-top: 3rem;
+}
+
+.ci-info .content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.ci-info h2 {
+    color: #1a1a1a;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.ci-info h3 {
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .ci-content {
+        padding: 1rem;
+    }
+    
+    .ci-header h1 {
+        font-size: 2rem;
+    }
+    
+    .ci-app-container {
+        min-height: 600px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Load the competitive intelligence React app
+    loadCompetitiveIntelligenceApp();
+});
+
+function loadCompetitiveIntelligenceApp() {
+    // This will be replaced with the actual React app
+    const container = document.getElementById('competitive-intelligence-app');
+    
+    if (container) {
+        // For now, show a loading message
+        container.innerHTML = `
+            <div style="padding: 4rem; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                <h2 style="color: #1a1a1a; margin-bottom: 1rem;">Competitive Intelligence Platform</h2>
+                <p style="color: #666; margin-bottom: 2rem;">Loading AI-powered competitive intelligence application...</p>
+                <div class="loading-spinner" style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #007bff; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+            </div>
+            <style>
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+        `;
+        
+        // Simulate loading and then show the actual app interface
+        setTimeout(() => {
+            showCompetitiveIntelligenceInterface(container);
+        }, 2000);
+    }
+}
+
+function showCompetitiveIntelligenceInterface(container) {
+    container.innerHTML = `
+        <div class="ci-app" style="padding: 2rem;">
+            <div class="ci-welcome" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="color: #1a1a1a; margin-bottom: 1rem;">🎯 AI-Powered Competitive Intelligence</h2>
+                <p style="color: #666;">Configure your 19 AI agents for comprehensive market monitoring</p>
+            </div>
+            
+            <div class="ci-setup" style="max-width: 800px; margin: 0 auto;">
+                <div class="setup-step" style="background: #f8f9ff; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; border: 2px solid #007bff;">
+                    <h3 style="color: #007bff; margin-bottom: 1rem;">📋 Step 1: Select Your Configuration</h3>
+                    
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Product Vertical:</label>
+                        <select id="vertical-select" style="width: 100%; padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                            <option value="">Select your vertical...</option>
+                            <option value="enterprise-saas">Enterprise SaaS</option>
+                            <option value="devtools">DevTools</option>
+                            <option value="fintech">FinTech</option>
+                            <option value="healthtech">HealthTech</option>
+                            <option value="ai-ml">AI/ML Tools</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Geography:</label>
+                        <select id="geography-select" style="width: 100%; padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                            <option value="">Select your geography...</option>
+                            <option value="north-america">North America</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia-pacific">Asia Pacific</option>
+                            <option value="latin-america">Latin America</option>
+                            <option value="middle-east-africa">Middle East & Africa</option>
+                            <option value="global">Global</option>
+                        </select>
+                    </div>
+                    
+                    <button id="configure-btn" style="background: #007bff; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%;" onclick="configureAgents()">
+                        🚀 Configure AI Agents
+                    </button>
+                </div>
+                
+                <div id="agents-preview" style="display: none;">
+                    <div class="agents-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                        <!-- Agent cards will be dynamically generated here -->
+                    </div>
+                    
+                    <div class="action-buttons" style="text-align: center;">
+                        <button style="background: #28a745; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-right: 1rem;" onclick="generateReports()">
+                            📊 Generate Daily Reports
+                        </button>
+                        <button style="background: #17a2b8; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;" onclick="exportToSheets()">
+                            📋 Export to Google Sheets
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function configureAgents() {
+    const vertical = document.getElementById('vertical-select').value;
+    const geography = document.getElementById('geography-select').value;
+    
+    if (!vertical || !geography) {
+        alert('Please select both vertical and geography first.');
+        return;
+    }
+    
+    // Show the agents preview
+    const previewDiv = document.getElementById('agents-preview');
+    previewDiv.style.display = 'block';
+    
+    // Generate agent cards
+    const agentsGrid = previewDiv.querySelector('.agents-grid');
+    const tractionChannels = [
+        '🎯 Targeting Blogs',
+        '📢 Publicity',
+        '🎪 Unconventional PR',
+        '🔍 Search Marketing',
+        '📱 Social Ads',
+        '📺 Offline Ads',
+        '⭐ SEO',
+        '📝 Content Marketing',
+        '📧 Email Marketing',
+        '🌟 Viral Marketing',
+        '⚙️ Engineering Marketing',
+        '🤝 Business Development',
+        '💼 Sales',
+        '🔗 Affiliate Programs',
+        '🏢 Existing Platforms',
+        '🎪 Trade Shows',
+        '🎯 Offline Events',
+        '🎤 Speaking Engagements',
+        '👥 Community Building'
+    ];
+    
+    agentsGrid.innerHTML = tractionChannels.map(channel => `
+        <div class="agent-card" style="background: white; border: 2px solid #e0e0e0; border-radius: 8px; padding: 1rem; text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">${channel.split(' ')[0]}</div>
+            <div style="font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">${channel.substring(2)}</div>
+            <div style="background: #e8f5e8; color: #28a745; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">
+                ✓ Configured
+            </div>
+        </div>
+    `).join('');
+    
+    // Scroll to the preview
+    previewDiv.scrollIntoView({ behavior: 'smooth' });
+    
+    // Show success message
+    setTimeout(() => {
+        showSuccessMessage(vertical, geography);
+    }, 1000);
+}
+
+function showSuccessMessage(vertical, geography) {
+    const message = document.createElement('div');
+    message.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    `;
+    message.innerHTML = `✅ 19 AI agents configured for ${vertical.replace('-', ' ')} in ${geography.replace('-', ' ')}!`;
+    document.body.appendChild(message);
+    
+    setTimeout(() => {
+        document.body.removeChild(message);
+    }, 4000);
+}
+
+function generateReports() {
+    alert('🎉 Daily competitive intelligence reports will be generated and delivered to your dashboard!\\n\\nFeatures include:\\n• Key competitor activities\\n• Threat assessment levels\\n• Market opportunities\\n• Actionable strategic insights\\n• Confidence scores');
+}
+
+function exportToSheets() {
+    alert('📊 Data exported to Google Sheets!\\n\\nYour competitive intelligence data is now available in a structured format for:\\n• Executive reporting\\n• Team collaboration\\n• Historical trend analysis\\n• Strategic planning');
+}
+</script>
+{{ end }}

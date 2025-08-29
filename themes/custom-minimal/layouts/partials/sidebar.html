@@ -1,0 +1,75 @@
+<div class="sidebar-content">
+    <!-- Profile Section -->
+    <div class="profile-section">
+        <h1 class="profile-name">Outlier Alpha</h1>
+        <p class="profile-title">Tech Investor</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="/" class="nav-link {{ if .IsHome }}active{{ end }}">
+                    <i class="fas fa-bolt"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/resources/" class="nav-link {{ if eq .Section "resources" }}active{{ end }}">
+                    <i class="fas fa-book"></i>
+                    <span>Resources</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/about/" class="nav-link {{ if eq .RelPermalink "/about/" }}active{{ end }}">
+                    <i class="fas fa-user"></i>
+                    <span>About</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/posts/" class="nav-link {{ if eq .Section "posts" }}active{{ end }}">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Articles</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Social Links -->
+    <div class="social-section">
+        <h4>Socials</h4>
+        <div class="social-links">
+            <a href="https://twitter.com/theoutlieralpha" class="social-link" target="_blank" rel="noopener">
+                <i class="fab fa-twitter"></i>
+                <span>Twitter</span>
+            </a>
+            <a href="https://www.linkedin.com/in/manoj-kumar-iit-iim/" class="social-link" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://www.youtube.com/" class="social-link" target="_blank" rel="noopener">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="/contact/" class="social-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="newsletter-section">
+        <h3>Subscribe for AI powered Research</h3>
+        
+        <form class="newsletter-form" action="https://formspree.io/f/moqgkvpd" method="POST">
+            <label for="email" class="email-label">Email address</label>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+    </div>
+
+
+</div>

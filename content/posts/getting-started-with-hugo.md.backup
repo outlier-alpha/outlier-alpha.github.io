@@ -1,0 +1,173 @@
+---
+title: "Getting Started with Hugo and GitHub Pages"
+date: 2025-01-28T10:00:00Z
+draft: false
+categories: ["Web Development", "Tutorial"]
+tags: ["hugo", "github-pages", "static-site", "deployment"]
+author: "Outlier Alpha"
+---
+
+In this comprehensive guide, we'll walk through setting up a blog using Hugo, a fast and flexible static site generator, and deploying it for free using GitHub Pages.
+
+## Why Hugo and GitHub Pages?
+
+The combination of Hugo and GitHub Pages offers several advantages:
+
+- **Speed**: Hugo is one of the fastest static site generators available
+- **Free Hosting**: GitHub Pages provides free, reliable hosting
+- **Version Control**: Your entire site is version-controlled with Git
+- **Custom Domains**: Easy to set up your own domain
+- **CI/CD**: Automatic deployments with GitHub Actions
+
+## Prerequisites
+
+Before we begin, ensure you have:
+- Git installed on your system
+- A GitHub account
+- Basic command line knowledge
+
+## Step 1: Installing Hugo
+
+### macOS
+```bash
+brew install hugo
+```
+
+### Windows
+```bash
+choco install hugo -confirm
+```
+
+### Linux
+```bash
+snap install hugo
+```
+
+## Step 2: Creating Your Hugo Site
+
+```bash
+hugo new site my-blog
+cd my-blog
+```
+
+This creates the basic structure for your Hugo site.
+
+## Step 3: Adding a Theme
+
+You can either use an existing theme or create your own. For this tutorial, we've created a custom minimal theme.
+
+```bash
+# If using an existing theme
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke
+echo "theme = 'ananke'" >> config.toml
+```
+
+## Step 4: Creating Content
+
+Create your first blog post:
+
+```bash
+hugo new posts/my-first-post.md
+```
+
+Edit the file and add your content. Remember to set `draft: false` when ready to publish.
+
+## Step 5: Local Development
+
+Run the Hugo development server:
+
+```bash
+hugo server -D
+```
+
+Visit `http://localhost:1313` to see your site.
+
+## Step 6: Setting Up GitHub Repository
+
+1. Create a new repository on GitHub named `yourusername.github.io`
+2. Initialize Git in your Hugo directory:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/yourusername/yourusername.github.io.git
+git push -u origin main
+```
+
+## Step 7: Configuring GitHub Actions
+
+Create `.github/workflows/hugo.yml`:
+
+```yaml
+name: Deploy Hugo site to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+      
+      - name: Build
+        run: hugo --minify
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+  
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+## Step 8: Enable GitHub Pages
+
+1. Go to your repository settings
+2. Navigate to "Pages" section
+3. Under "Build and deployment", select "GitHub Actions"
+
+## Step 9: Custom Domain (Optional)
+
+To use a custom domain:
+
+1. Add a `CNAME` file in your `static` directory with your domain
+2. Configure your domain's DNS settings to point to GitHub Pages
+3. Enable HTTPS in your repository settings
+
+## Conclusion
+
+You now have a fully functional blog powered by Hugo and hosted on GitHub Pages! Every time you push changes to your repository, GitHub Actions will automatically build and deploy your site.
+
+### Next Steps
+
+- Customize your theme
+- Add more content
+- Explore Hugo's powerful features like taxonomies and shortcodes
+- Set up analytics and comments
+
+Happy blogging!

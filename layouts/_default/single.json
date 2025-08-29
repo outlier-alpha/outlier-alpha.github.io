@@ -1,0 +1,23 @@
+{
+    "title": "{{ .Title }}",
+    "date": "{{ .Date }}",
+    "permalink": "{{ .Permalink }}",
+    "content": {{ .Content | jsonify }},
+    {{ if .Params.tags }}
+    "tags": [
+        {{ range $index, $tag := .Params.tags }}
+        {{- if $index -}},{{- end -}}
+        "{{ $tag }}"
+        {{- end -}}
+    ],
+    {{ end }}
+    {{ if .Params.categories }}
+    "categories": [
+        {{ range $index, $category := .Params.categories }}
+        {{- if $index -}},{{- end -}}
+        "{{ $category }}"
+        {{- end -}}
+    ],
+    {{ end }}
+    "lastmod": "{{ .Lastmod }}"
+}

@@ -1,0 +1,205 @@
+baseURL = "https://outlieralphaventures.com/"
+languageCode = "en-us"
+title = "Outlier Alpha - Strategic Investment Research"
+theme = "custom-minimal"
+
+# Hugo Configuration
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  author = "Manoj Kumar"
+  description = "AI powered Strategy, Investments & Business Innovation"
+  copyright = "Copyright © 2025 Outlier Alpha. All rights reserved."
+  showReadingTime = true
+  showShareButtons = true
+  showPostNavLinks = true
+  showBreadcrumb = true
+  dateFormat = "January 2, 2006"
+  
+  # SEO and Social
+  keywords = ["investment research", "strategy advisory", "fintech", "AI", "venture capital", "growth equity", "public markets", "M&A advisory"]
+  images = ["images/outlier-alpha-logo.png"]
+  
+  # Professional Details - Updated to remove separate experience line and move credentials up
+  company = "Outlier Alpha"
+  position = "Strategy & Corporate Development | IIT-IIM | ex-TimesGroup, ex-Goldman || FRM Charterholder, CFA L2, BMC"
+  education = "IIT, IIM & ESCP Europe"
+  certifications = ["GARP FRM", "CFA Level II", "Bloomberg Certified"]
+  
+  # Contact Information
+  email = "hello@outlieralphaventures.com"
+  phone = "+1-XXX-XXX-XXXX"
+  location = "Made in India 🇮🇳"
+  
+  # Analytics
+  googleAnalytics = "G-XXXXXXXXXX"
+  
+  # Social links - Updated YouTube, Removed Advisory
+  [[params.social]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/manoj-kumar-iit-iim/"
+    icon = "linkedin"
+    weight = 1
+  
+  [[params.social]]
+    name = "Twitter"
+    url = "https://x.com/theoutlieralpha"
+    icon = "twitter"
+    weight = 2
+    
+  [[params.social]]
+    name = "YouTube"
+    url = "https://www.youtube.com/@OutlierAlphaVentures"
+    icon = "youtube"
+    weight = 3
+    
+  [[params.social]]
+    name = "Contact"
+    url = "/contact/"
+    icon = "envelope"
+    weight = 4
+
+# Simplified Menu Configuration - Only Main Categories
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+    pre = "fas fa-home"
+  
+  [[menu.main]]
+    name = "Research"
+    url = "/posts/"
+    weight = 2
+    pre = "fas fa-chart-line"
+    
+  [[menu.main]]
+    name = "Solutions"
+    url = "/solutions/"
+    weight = 3
+    pre = "fas fa-cogs"
+    
+  [[menu.main]]
+    name = "Resources"
+    url = "/resources/"
+    weight = 4
+    pre = "fas fa-book-open"
+    
+  [[menu.main]]
+    name = "About Us"
+    url = "/about/"
+    weight = 5
+    pre = "fas fa-user-tie"
+
+# Enhanced Taxonomy Configuration
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+  sector = "sectors"
+  company = "companies"
+
+# Markup Configuration
+[markup]
+  [markup.highlight]
+    style = "github-dark"
+    lineNos = true
+    lineNumbersInTable = true
+    tabWidth = 2
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    noClasses = false
+    noHl = false
+    lineAnchors = ""
+    lineNumbers = true
+  
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      hardWraps = false
+      xhtml = false
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      linkifyProtocol = "https"
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+
+# Output Formats
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+
+# Media Types
+[mediaTypes]
+  [mediaTypes."application/manifest+json"]
+    suffixes = ["webmanifest"]
+
+[outputFormats]
+  [outputFormats.RSS]
+    mediatype = "application/rss+xml"
+    baseName = "feed"
+    isPlainText = false
+  [outputFormats.JSON]
+    mediatype = "application/json"
+    baseName = "index"
+    isPlainText = true
+
+# Sitemap Configuration
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# Privacy Configuration
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    disable = false
+    respectDoNotTrack = true
+    useSessionStorage = false
+  [privacy.instagram]
+    disable = true
+  [privacy.x]
+    disable = false
+    enableDNT = true
+    simple = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true
+
+# Security Configuration
+[security]
+  [security.exec]
+    allow = ["^dart-sass-embedded$", "^go$", "^npx$", "^postcss$", "^git$"]
+    osEnv = ["(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM)$"]
+  [security.funcs]
+    getenv = ["^HUGO_", "^CI$"]
+  [security.http]
+    methods = ["(?i)GET|POST"]
+    urls = [".*"]
+
+# Module Configuration
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.110.0"

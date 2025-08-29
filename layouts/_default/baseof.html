@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="{{ .Title }}">
+    <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ .Title }}">
+    <meta name="twitter:description" content="{{ .Description | default .Site.Params.description }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-blue-600">
+                        {{ .Site.Title }}
+                    </a>
+                    <nav class="hidden md:flex ml-10 space-x-8">
+                        {{ range .Site.Menus.main }}
+                        <a href="{{ .URL }}" class="text-gray-700 hover:text-blue-600 {{ if eq $.RelPermalink .URL }}text-blue-600 font-medium{{ end }}">
+                            {{ .Name }}
+                        </a>
+                        {{ end }}
+                    </nav>
+                </div>
+                <a href="/contact/" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">{{ .Site.Title }}</h3>
+                    <p class="text-gray-300 text-sm">
+                        {{ .Site.Params.description }}
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-3">Solutions</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="/solutions/competitive-intelligence/" class="hover:text-white">Competitive Intelligence</a></li>
+                        <li><a href="/solutions/" class="hover:text-white">Market Research</a></li>
+                        <li><a href="/solutions/" class="hover:text-white">AI/ML Services</a></li>
+                        <li><a href="/solutions/" class="hover:text-white">Strategic Partnerships</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-3">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="/posts/" class="hover:text-white">Research Reports</a></li>
+                        <li><a href="/resources/" class="hover:text-white">Framework Library</a></li>
+                        <li><a href="/resources/" class="hover:text-white">AI Hacks</a></li>
+                        <li><a href="/contact/" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-3">Connect</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        {{ range .Site.Params.social }}
+                        <li><a href="{{ .url }}" class="hover:text-white">{{ .name }}</a></li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300 text-sm">
+                    {{ .Site.Params.copyright }}
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

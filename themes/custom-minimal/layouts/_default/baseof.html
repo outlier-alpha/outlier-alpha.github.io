@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" class="no-js">
+<head>
+    <!-- Performance and Security -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index,follow">
+    
+    <!-- Primary Meta Tags -->
+    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <meta name="title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | truncate 155 }}{{ end }}{{ end }}">
+    <meta name="keywords" content="{{ if .Params.tags }}{{ delimit .Params.tags ", " }}{{ else }}investment research, strategy advisory, fintech, AI, venture capital{{ end }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+    <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | truncate 155 }}{{ end }}{{ end }}">
+    <meta property="og:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "images/og-default.png" | absURL }}{{ end }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ .Permalink }}">
+    <meta property="twitter:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+    <meta property="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | truncate 155 }}{{ end }}{{ end }}">
+    <meta property="twitter:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "images/og-default.png" | absURL }}{{ end }}">
+    <meta property="twitter:creator" content="@theoutlieralpha">
+    
+    <!-- Enhanced CSS -->
+    <link rel="stylesheet" href="{{ "css/enhanced-professional.css" | relURL }}">
+    <!-- Fixed CSS to address design issues -->
+    <link rel="stylesheet" href="{{ "css/fixed-styles.css" | relURL }}">
+    <!-- New Design Fixes CSS -->
+    <link rel="stylesheet" href="{{ "css/design-fixes.css" | relURL }}">
+    <!-- URGENT FIXES - Critical Design Issues -->
+    <link rel="stylesheet" href="{{ "css/urgent-fixes.css" | relURL }}">
+    <!-- CRITICAL FIXES - Complete Fix for All Issues -->
+    <link rel="stylesheet" href="{{ "css/critical-fixes.css" | relURL }}">
+    <!-- COMPLETE DESIGN FIX - All highlighted issues resolved -->
+    <link rel="stylesheet" href="{{ "css/complete-design-fix.css" | relURL }}">
+    
+    <!-- Critical CSS Inline -->
+    <style>
+        html { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        body { margin: 0; background: #f8fafc; }
+        .app-container { display: flex; min-height: 100vh; }
+        .sidebar { width: 320px; background: #f9fafb; border-right: 1px solid #e2e8f0; position: relative; transition: all 0.3s ease; }
+        .sidebar.minimized { width: 60px; }
+        .main-wrapper { flex: 1; margin-left: 320px; transition: all 0.3s ease; }
+        .main-wrapper.sidebar-minimized { margin-left: 60px; }
+        .sidebar-toggle { 
+            position: absolute; 
+            top: 20px; 
+            right: -15px; 
+            background: #2563eb; 
+            color: white; 
+            border: none; 
+            border-radius: 50%; 
+            width: 30px; 
+            height: 30px; 
+            cursor: pointer; 
+            z-index: 1001; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 1024px) {
+            .main-wrapper { margin-left: 0; }
+            .main-wrapper.sidebar-minimized { margin-left: 0; }
+            .sidebar { transform: translateX(-100%); position: fixed; z-index: 1000; height: 100vh; }
+            .sidebar.minimized { transform: translateX(-100%); }
+        }
+    </style>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ .Permalink }}">
+    
+    <!-- RSS Feed -->
+    {{ range .AlternativeOutputFormats -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "{{ if .IsHome }}Organization{{ else if eq .Type "posts" }}Article{{ else }}WebPage{{ end }}",
+        {{ if .IsHome }}
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}",
+        "description": "{{ .Site.Params.description }}",
+        "founder": {
+            "@type": "Person",
+            "name": "{{ .Site.Params.author }}",
+            "jobTitle": "Investment Strategy Advisor"
+        }
+        {{ else if eq .Type "posts" }}
+        "headline": "{{ .Title }}",
+        "description": "{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ .Site.Params.author }}"
+        },
+        "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+        "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}"
+        {{ else }}
+        "name": "{{ .Title }}",
+        "description": "{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}",
+        "url": "{{ .Permalink }}"
+        {{ end }}
+    }
+    </script>
+    
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+        document.documentElement.classList.add('loading');
+        
+        window.addEventListener('load', function() {
+            document.documentElement.classList.remove('loading');
+            document.documentElement.classList.add('loaded');
+        });
+    </script>
+</head>
+<body class="professional-layout">
+    <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+    
+    <div class="app-container">
+        <!-- Enhanced Sidebar with Minimizer -->
+        <aside class="sidebar" role="navigation" aria-label="Main navigation" id="sidebar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">
+                <i class="fas fa-chevron-left" id="toggle-icon"></i>
+            </button>
+            {{ partial "enhanced-sidebar.html" . }}
+        </aside>
+        
+        <!-- Main Content Wrapper -->
+        <div class="main-wrapper" id="main-wrapper">
+            <!-- Simplified Top Bar - Completely Removed Search -->
+            <header class="top-bar" role="banner">
+                <div class="top-bar-content">
+                    <div class="breadcrumb" aria-label="Breadcrumb">
+                        {{ if not .IsHome }}
+                        <nav>
+                            <ol class="breadcrumb-list">
+                                <li><a href="/">Home</a></li>
+                                {{ if .Section }}
+                                <li><a href="/{{ .Section }}/">{{ .Section | title }}</a></li>
+                                {{ end }}
+                                {{ if not .IsSection }}
+                                <li aria-current="page">{{ .Title }}</li>
+                                {{ end }}
+                            </ol>
+                        </nav>
+                        {{ end }}
+                    </div>
+                    <!-- No search bar or action buttons as requested -->
+                </div>
+            </header>
+            
+            <!-- Main Content -->
+            <main id="main-content" class="main-content" role="main">
+                {{ if eq .Type "posts" }}
+                <article itemscope itemtype="https://schema.org/Article">
+                    <meta itemprop="author" content="{{ .Site.Params.author }}">
+                    <meta itemprop="datePublished" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                    <meta itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+                    {{ block "main" . }}{{ end }}
+                </article>
+                {{ else }}
+                {{ block "main" . }}{{ end }}
+                {{ end }}
+                
+                <!-- CXO Call-to-Action Section -->
+                {{ if .IsHome }}
+                <section class="cxo-cta-section" aria-labelledby="cxo-cta-heading">
+                    <div class="cta-container">
+                        <div class="cta-content">
+                            <h2 id="cxo-cta-heading">Ready to Scale Your Venture?</h2>
+                            <p>Strategic advisory for growth-stage companies and institutional investors. From fundraising to M&A, let's build your path to market leadership.</p>
+                            <div class="cta-features">
+                                <div class="feature">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Strategic Roadmaps</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Capital Allocation</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-handshake"></i>
+                                    <span>M&A Advisory</span>
+                                </div>
+                            </div>
+                            <div class="cta-actions">
+                                <a href="https://calendly.com/outlieralphaventures/30min" target="_blank" rel="noopener" class="btn btn-primary cta-primary">
+                                    <i class="fas fa-calendar"></i>
+                                    Schedule Strategic Call
+                                </a>
+                                <a href="/about/" class="btn btn-secondary cta-secondary">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cta-visual">
+                            <div class="chart-placeholder">
+                                <canvas id="growth-chart" width="300" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {{ end }}
+            </main>
+            
+            <!-- Professional Footer -->
+            <footer class="site-footer" role="contentinfo">
+                <div class="footer-content">
+                    <div class="footer-main">
+                        <div class="footer-brand">
+                            <h3>Outlier Alpha</h3>
+                            <p>Strategic investment research platform delivering data-driven insights for institutional investors and growth-stage companies.</p>
+                            <div class="certifications">
+                                <span class="cert">GARP FRM</span>
+                                <span class="cert">CFA L2</span>
+                                <span class="cert">Bloomberg Certified</span>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-links">
+                            <div class="link-group">
+                                <h4>Research</h4>
+                                <ul>
+                                    <li><a href="/">Investment Insights</a></li>
+                                    <li><a href="/sector-research/">Sector Analysis</a></li>
+                                    <li><a href="/philosophy-tech/">Tech Insights</a></li>
+                                    <li><a href="/frameworks/">Investment Frameworks</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="link-group">
+                                <h4>Services</h4>
+                                <ul>
+                                    <li><a href="/contact/">Strategic Advisory</a></li>
+                                    <li><a href="/contact/">Fundraising Support</a></li>
+                                    <li><a href="/contact/">M&A Advisory</a></li>
+                                    <li><a href="/contact/">Due Diligence</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="link-group">
+                                <h4>Connect</h4>
+                                <ul>
+                                    <li><a href="https://www.linkedin.com/in/manoj-kumar-iit-iim/" target="_blank" rel="noopener">LinkedIn</a></li>
+                                    <li><a href="https://x.com/theoutlieralpha" target="_blank" rel="noopener">Twitter</a></li>
+                                    <li><a href="https://www.youtube.com/@OutlierAlphaVentures" target="_blank" rel="noopener">YouTube</a></li>
+                                    <li><a href="/contact/">Email</a></li>
+                                    <li><a href="/index.xml">RSS Feed</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom">
+                        <div class="footer-legal">
+                            <p>&copy; {{ now.Year }} Outlier Alpha. All rights reserved.</p>
+                            <p class="disclaimer">Analysis and opinions are for educational purposes. Not financial advice. Always conduct independent research and consult qualified professionals for investment decisions.</p>
+                        </div>
+                        
+                        <div class="footer-meta">
+                            <span class="location">Made in India 🇮🇳</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Complete Interface Fix JavaScript -->
+    <script src="{{ "js/complete-interface-fix.js" | relURL }}" defer></script>
+    <!-- Enhanced JavaScript -->
+    <script src="{{ "js/enhanced-professional.js" | relURL }}" defer></script>
+    <!-- Fallback JavaScript -->
+    <script src="{{ "js/critical-sidebar-fix.js" | relURL }}" defer></script>
+    
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" defer></script>
+    
+    <!-- Inline JavaScript for immediate functionality -->
+    <script>
+        // Immediate toggle function
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainWrapper = document.getElementById('main-wrapper');
+            const toggleIcon = document.getElementById('toggle-icon');
+            
+            if (!sidebar || !mainWrapper) return;
+            
+            sidebar.classList.toggle('minimized');
+            mainWrapper.classList.toggle('sidebar-minimized');
+            
+            if (toggleIcon) {
+                if (sidebar.classList.contains('minimized')) {
+                    toggleIcon.className = 'fas fa-chevron-right';
+                } else {
+                    toggleIcon.className = 'fas fa-chevron-left';
+                }
+            }
+        }
+        
+        // Initialize basic functionality immediately
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure toggle button works
+            const toggleBtn = document.querySelector('.sidebar-toggle');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', toggleSidebar);
+            }
+            
+            // Fix logo image immediately
+            const logoImg = document.querySelector('.profile-avatar img');
+            if (logoImg) {
+                logoImg.addEventListener('error', function() {
+                    const fallback = document.createElement('div');
+                    fallback.className = 'logo-image-fallback';
+                    fallback.textContent = 'OA';
+                    fallback.style.cssText = `
+                        width: 80px; height: 80px; background: #2563eb; color: white;
+                        display: flex; align-items: center; justify-content: center;
+                        border-radius: 12px; font-size: 1.5rem; font-weight: 700;
+                        border: 2px solid #e2e8f0; margin: 0 auto;
+                    `;
+                    this.parentNode.appendChild(fallback);
+                    this.style.display = 'none';
+                });
+            }
+        });
+        
+        // Initialize growth chart if Chart.js is available
+        window.addEventListener('load', function() {
+            const chartCanvas = document.getElementById('growth-chart');
+            if (chartCanvas && typeof Chart !== 'undefined') {
+                try {
+                    const ctx = chartCanvas.getContext('2d');
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q1+1'],
+                            datasets: [{
+                                label: 'Growth Trajectory',
+                                data: [100, 125, 165, 210, 280],
+                                borderColor: 'rgba(255, 255, 255, 0.8)',
+                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                tension: 0.4,
+                                fill: true
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: { legend: { display: false } },
+                            scales: {
+                                y: { beginAtZero: true, display: false },
+                                x: { display: false }
+                            }
+                        }
+                    });
+                } catch (e) {
+                    console.warn('Chart initialization failed:', e);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

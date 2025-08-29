@@ -1,0 +1,12 @@
+name = "Custom Minimal"
+license = "MIT"
+licenselink = "https://github.com/outlieralpha/custom-minimal/blob/master/LICENSE"
+description = "A custom minimal theme for Hugo with enhanced design elements"
+homepage = "https://github.com/outlieralpha/custom-minimal"
+tags = ["minimal", "clean", "blog", "responsive", "professional", "investment"]
+features = ["responsive", "syntax highlighting", "social links", "market data widget", "enhanced sidebar"]
+min_version = "0.83.0"
+
+[author]
+  name = "Outlier Alpha"
+  homepage = "https://outlieralpha.github.io"

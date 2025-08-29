@@ -1,0 +1,128 @@
+{{ define "main" }}
+<div class="resources-page">
+    <header class="resources-header">
+        <h1>Resources</h1>
+        <p class="resources-description">Curated collection of investment tools, AI strategies, and learning materials to enhance your investment decisions and strategy.</p>
+    </header>
+    
+    <section class="resource-section">
+        <h2>Book Reviews</h2>
+        <div class="resource-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <div class="book-review">
+                        <h3>The Psychology of Money</h3>
+                        <p class="book-author">by Morgan Housel</p>
+                        <p class="book-summary">Insights into how psychology influences financial decisions and investment behavior in unexpected ways.</p>
+                        <a href="#" class="read-more">Read Review →</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="book-review">
+                        <h3>The Rise of AI</h3>
+                        <p class="book-author">by Kevin Roose</p>
+                        <p class="book-summary">A balanced exploration of how artificial intelligence is reshaping industries and investment opportunities.</p>
+                        <a href="#" class="read-more">Read Review →</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="book-review">
+                        <h3>The Innovator's Dilemma</h3>
+                        <p class="book-author">by Clayton Christensen</p>
+                        <p class="book-summary">Essential reading on how disruptive innovation transforms markets and why established companies often fail to adapt.</p>
+                        <a href="#" class="read-more">Read Review →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls"></div>
+        </div>
+    </section>
+    
+    <section class="resource-section">
+        <h2>Podcast Summaries</h2>
+        <div class="resource-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <div class="podcast-summary">
+                        <h3>Invest Like the Best: AI Investment Strategies</h3>
+                        <p class="podcast-host">by Patrick O'Shaughnessy</p>
+                        <p class="podcast-description">Key insights from Patrick's interview with leading AI investors on spotting undervalued AI opportunities.</p>
+                        <a href="#" class="read-more">Read Summary →</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="podcast-summary">
+                        <h3>The Tim Ferriss Show: Marc Andreessen</h3>
+                        <p class="podcast-host">by Tim Ferriss</p>
+                        <p class="podcast-description">Comprehensive notes from Marc's discussion on technological inflection points and their investment implications.</p>
+                        <a href="#" class="read-more">Read Summary →</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="podcast-summary">
+                        <h3>All-In Podcast: Market Correction Analysis</h3>
+                        <p class="podcast-host">by Chamath, Jason, Sacks & Friedberg</p>
+                        <p class="podcast-description">Strategic takeaways from the All-In crew's analysis of recent market corrections and positioning strategies.</p>
+                        <a href="#" class="read-more">Read Summary →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls"></div>
+        </div>
+    </section>
+    
+    <section class="resource-section">
+        <h2>Video Resources</h2>
+        <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/27GthqI37xg" title="Investment Strategy Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+    <section class="resource-section">
+        <h2>Prompt Library</h2>
+        <div class="resource-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <div class="prompt-card">
+                        <h3>Financial Statement Analysis</h3>
+                        <p class="prompt-description">Prompt templates for extracting insights from annual reports and identifying accounting red flags.</p>
+                        <a href="#" class="read-more">View Prompts →</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="prompt-card">
+                        <h3>Market Entry Strategy</h3>
+                        <p class="prompt-description">Structured prompts for evaluating new market opportunities and competitive positioning strategies.</p>
+                        <a href="#" class="read-more">View Prompts →</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="prompt-card">
+                        <h3>Valuation Model Generator</h3>
+                        <p class="prompt-description">AI prompts that help create customized DCF and multiple-based valuation models for different industries.</p>
+                        <a href="#" class="read-more">View Prompts →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls"></div>
+        </div>
+    </section>
+    
+    <section class="resource-section">
+        <h2>Code Corner</h2>
+        <p class="coming-soon">GitHub projects and code resources coming soon. Stay tuned for investment analysis tools, data visualization scripts, and financial modeling templates.</p>
+    </section>
+    
+    <div class="newsletter-section resources-newsletter">
+        <h3>Subscribe for AI powered Research</h3>
+        
+        <form class="newsletter-form" action="https://formspree.io/f/moqgkvpd" method="POST">
+            <label for="email-resources" class="email-label">Email address</label>
+            <div class="form-group">
+                <input type="email" id="email-resources" name="email" placeholder="you@example.com" required>
+            </div>
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+    </div>
+</div>
+{{ end }}

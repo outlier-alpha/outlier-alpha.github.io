@@ -1,0 +1,15 @@
+{
+    "title": "{{ .Title }} - Resources",
+    "date": "{{ .Date }}",
+    "permalink": "{{ .Permalink }}/resources",
+    "resources": [
+        {{ $len := len .Resources }}
+        {{ range $index, $resource := .Resources }}
+        {
+            "name": "{{ $resource.Name }}",
+            "permalink": "{{ $resource.Permalink }}",
+            "resourceType": "{{ $resource.ResourceType }}"
+        }{{ if ne (add $index 1) $len }},{{ end }}
+        {{ end }}
+    ]
+}

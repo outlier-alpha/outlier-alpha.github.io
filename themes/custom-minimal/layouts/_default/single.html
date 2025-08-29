@@ -1,0 +1,443 @@
+{{ define "main" }}
+<article class="post-single" itemscope itemtype="https://schema.org/Article">
+    <!-- Enhanced Post Header -->
+    <header class="post-header">
+        <div class="post-breadcrumb">
+            <nav aria-label="Article breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li><a href="/">Home</a></li>
+                    {{ if .Section }}
+                    <li><a href="/{{ .Section }}/">{{ .Section | title }}</a></li>
+                    {{ end }}
+                    <li aria-current="page">{{ .Title | truncate 50 }}</li>
+                </ol>
+            </nav>
+        </div>
+        
+        <div class="post-meta-primary">
+            <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
+                {{ .Date.Format "January 2, 2006" }}
+            </time>
+            {{ if .Site.Params.showReadingTime }}
+            <span class="reading-time">
+                <i class="fas fa-clock"></i>
+                {{ .ReadingTime }} min read
+            </span>
+            {{ end }}
+            <span class="author-info">
+                <i class="fas fa-user-tie"></i>
+                <span itemprop="author">{{ .Site.Params.author }}</span>
+            </span>
+        </div>
+        
+        <!-- Article Title with Enhanced Typography -->
+        <h1 class="post-title" itemprop="headline">{{ .Title }}</h1>
+        
+        <!-- Article Summary/Description -->
+        {{ if .Params.description }}
+        <div class="post-summary" itemprop="description">
+            {{ .Params.description | markdownify }}
+        </div>
+        {{ else if .Summary }}
+        <div class="post-summary" itemprop="description">
+            {{ .Summary }}
+        </div>
+        {{ end }}
+        
+        <!-- Enhanced Meta Information -->
+        <div class="post-meta-secondary">
+            {{ if .Params.categories }}
+            <div class="post-categories">
+                {{ range .Params.categories }}
+                <a href="/categories/{{ . | urlize }}/" class="category-tag">
+                    <i class="fas fa-folder"></i>
+                    {{ . | title }}
+                </a>
+                {{ end }}
+            </div>
+            {{ end }}
+            
+            {{ if .Params.tags }}
+            <div class="post-tags-preview">
+                {{ range first 3 .Params.tags }}
+                <span class="tag-preview">#{{ . }}</span>
+                {{ end }}
+                {{ if gt (len .Params.tags) 3 }}
+                <span class="tag-more">+{{ sub (len .Params.tags) 3 }} more</span>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        
+        <!-- Investment Disclaimer for Financial Content -->
+        {{ if or (in .Params.categories "investment") (in .Params.categories "finance") (in .Params.categories "stocks") }}
+        <div class="investment-disclaimer">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Investment Disclaimer:</strong> This analysis is for educational purposes only and does not constitute financial advice. Always conduct independent research and consult qualified professionals before making investment decisions.
+        </div>
+        {{ end }}
+    </header>
+    
+    <!-- Enhanced Table of Contents -->
+    {{ if .TableOfContents }}
+    <div class="table-of-contents">
+        <div class="toc-header">
+            <h3><i class="fas fa-list"></i> Table of Contents</h3>
+            <button class="toc-toggle" aria-expanded="true" aria-label="Toggle table of contents">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+        <nav class="toc-content" role="navigation">
+            {{ .TableOfContents }}
+        </nav>
+    </div>
+    {{ end }}
+    
+    <!-- Enhanced Post Content with Reading Progress -->
+    <div class="post-content-wrapper">
+        <div class="reading-progress-indicator">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <div class="post-content" itemprop="articleBody">
+            {{ .Content }}
+        </div>
+    </div>
+    
+    <!-- Enhanced Key Takeaways Section -->
+    {{ if .Params.key_takeaways }}
+    <div class="key-takeaways">
+        <h3><i class="fas fa-key"></i> Key Takeaways</h3>
+        <ul>
+            {{ range .Params.key_takeaways }}
+            <li>{{ . | markdownify }}</li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+    
+    <!-- Complete Tags Section -->
+    {{ if .Params.tags }}
+    <div class="post-tags-complete">
+        <h4><i class="fas fa-tags"></i> Related Topics</h4>
+        <div class="tags-container">
+            {{ range .Params.tags }}
+            <a href="/tags/{{ . | urlize }}/" class="tag-complete">#{{ . }}</a>
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+    
+    <!-- Enhanced Share Section -->
+    {{ if .Site.Params.showShareButtons }}
+    <div class="share-section">
+        <h4><i class="fas fa-share-alt"></i> Share This Analysis</h4>
+        <div class="share-buttons">
+            <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title | urlquery }}&via=theoutlieralpha" 
+               target="_blank" rel="noopener" class="share-button twitter">
+                <i class="fab fa-twitter"></i>
+                <span>Tweet</span>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink }}" 
+               target="_blank" rel="noopener" class="share-button linkedin">
+                <i class="fab fa-linkedin"></i>
+                <span>Share</span>
+            </a>
+            <a href="mailto:?subject={{ .Title | urlquery }}&body=Check out this investment analysis: {{ .Permalink }}" 
+               class="share-button email">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+            <button class="share-button copy-link" onclick="copyToClipboard('{{ .Permalink }}')">
+                <i class="fas fa-link"></i>
+                <span>Copy Link</span>
+            </button>
+        </div>
+    </div>
+    {{ end }}
+    
+    <!-- Author Bio Section -->
+    <div class="author-bio">
+        <div class="author-avatar">
+            <img src="/images/outlier-alpha-ventures-logo.png" alt="{{ .Site.Params.author }}" loading="lazy">
+        </div>
+        <div class="author-content">
+            <h4>About {{ .Site.Params.author }}</h4>
+            <p>{{ .Site.Params.description }}</p>
+            <div class="author-credentials">
+                <span class="credential">IIT • IIM • ESCP Europe</span>
+                <span class="credential">GARP FRM • CFA L2 • Bloomberg Certified</span>
+            </div>
+            <div class="author-social">
+                <a href="https://www.linkedin.com/in/manoj-kumar-iit-iim/" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://x.com/theoutlieralpha" target="_blank" rel="noopener">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="https://calendly.com/outlieralphaventures/30min" target="_blank" rel="noopener">
+                    <i class="fas fa-calendar"></i> Schedule Call
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enhanced Newsletter Section -->
+    <div class="newsletter-section post-newsletter">
+        <div class="newsletter-content">
+            <div class="newsletter-header">
+                <h3><i class="fas fa-chart-line"></i> Get More Investment Insights</h3>
+                <p>Join 2,500+ investors receiving data-driven analysis on emerging opportunities in AI, fintech, and frontier markets.</p>
+            </div>
+            
+            <form class="newsletter-form enhanced-form" action="https://formspree.io/f/moqgkvpd" method="POST">
+                <input type="hidden" name="source" value="blog_post">
+                <input type="hidden" name="post_title" value="{{ .Title }}">
+                
+                <div class="form-group">
+                    <label for="email-post" class="sr-only">Email address</label>
+                    <input type="email" id="email-post" name="email" 
+                           placeholder="your.email@example.com" required
+                           class="newsletter-input">
+                    <button type="submit" class="subscribe-btn enhanced-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Subscribe Free</span>
+                    </button>
+                </div>
+                
+                <div class="newsletter-benefits">
+                    <div class="benefit">
+                        <i class="fas fa-check"></i>
+                        <span>Weekly market insights</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check"></i>
+                        <span>Investment frameworks</span>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check"></i>
+                        <span>No spam, unsubscribe anytime</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Enhanced Post Navigation -->
+    {{ if .Site.Params.showPostNavLinks }}
+    <nav class="post-navigation">
+        <h4><i class="fas fa-compass"></i> Continue Reading</h4>
+        <div class="nav-links">
+            {{ with .PrevInSection }}
+            <a href="{{ .Permalink }}" class="nav-link prev-post">
+                <div class="nav-direction">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Previous</span>
+                </div>
+                <div class="nav-content">
+                    <h5>{{ .Title | truncate 60 }}</h5>
+                    <p>{{ .Summary | truncate 100 | plainify }}</p>
+                </div>
+            </a>
+            {{ end }}
+            
+            {{ with .NextInSection }}
+            <a href="{{ .Permalink }}" class="nav-link next-post">
+                <div class="nav-direction">
+                    <span>Next</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="nav-content">
+                    <h5>{{ .Title | truncate 60 }}</h5>
+                    <p>{{ .Summary | truncate 100 | plainify }}</p>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+    </nav>
+    {{ end }}
+    
+    <!-- Related Posts Section -->
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ if $related }}
+    <section class="related-posts">
+        <h4><i class="fas fa-lightbulb"></i> Related Analysis</h4>
+        <div class="related-posts-grid">
+            {{ range $related }}
+            <article class="related-post">
+                <div class="related-post-meta">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
+                    {{ if .Params.categories }}
+                    <span class="related-category">{{ index .Params.categories 0 | title }}</span>
+                    {{ end }}
+                </div>
+                <h5><a href="{{ .Permalink }}">{{ .Title | truncate 70 }}</a></h5>
+                <p>{{ .Summary | truncate 120 | plainify }}</p>
+                <a href="{{ .Permalink }}" class="related-read-more">
+                    Read Analysis <i class="fas fa-arrow-right"></i>
+                </a>
+            </article>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+    
+    <!-- Call-to-Action for Consultation -->
+    <div class="consultation-cta">
+        <div class="cta-content">
+            <h4><i class="fas fa-handshake"></i> Need Strategic Advisory?</h4>
+            <p>Looking for personalized investment guidance or strategic consultation for your venture?</p>
+            <a href="https://calendly.com/outlieralphaventures/30min" 
+               target="_blank" rel="noopener" class="cta-button">
+                <i class="fas fa-calendar-plus"></i>
+                Schedule Strategic Call
+            </a>
+        </div>
+    </div>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ .Title }}",
+        "description": "{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify }}{{ end }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ .Site.Params.author }}",
+            "jobTitle": "Investment Strategy Advisor",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "{{ .Site.Title }}"
+            }
+        },
+        "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+        "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ .Site.Title }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ "images/outlier-alpha-ventures-logo.png" | absURL }}"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ .Permalink }}"
+        },
+        {{ if .Params.categories }}"articleSection": {{ .Params.categories | jsonify }},{{ end }}
+        {{ if .Params.tags }}"keywords": {{ .Params.tags | jsonify }},{{ end }}
+        "url": "{{ .Permalink }}"
+    }
+    </script>
+</article>
+
+<!-- Enhanced JavaScript for Post Functionality -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Table of Contents Toggle
+    const tocToggle = document.querySelector('.toc-toggle');
+    const tocContent = document.querySelector('.toc-content');
+    
+    if (tocToggle && tocContent) {
+        tocToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            tocContent.style.display = isExpanded ? 'none' : 'block';
+            this.querySelector('i').className = isExpanded ? 'fas fa-chevron-down' : 'fas fa-chevron-up';
+        });
+    }
+    
+    // Reading Progress Indicator
+    const progressBar = document.querySelector('.progress-bar');
+    const postContent = document.querySelector('.post-content');
+    
+    if (progressBar && postContent) {
+        function updateProgress() {
+            const rect = postContent.getBoundingClientRect();
+            const contentHeight = postContent.offsetHeight;
+            const viewportHeight = window.innerHeight;
+            const scrolled = Math.max(0, -rect.top);
+            const progress = Math.min(100, (scrolled / (contentHeight - viewportHeight)) * 100);
+            
+            progressBar.style.width = progress + '%';
+        }
+        
+        window.addEventListener('scroll', updateProgress);
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
+    }
+    
+    // Copy Link Functionality
+    window.copyToClipboard = function(text) {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(function() {
+                showCopyFeedback();
+            });
+        } else {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            showCopyFeedback();
+        }
+    };
+    
+    function showCopyFeedback() {
+        const copyButton = document.querySelector('.copy-link');
+        if (copyButton) {
+            const originalContent = copyButton.innerHTML;
+            copyButton.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
+            copyButton.style.background = 'var(--accent-success)';
+            
+            setTimeout(() => {
+                copyButton.innerHTML = originalContent;
+                copyButton.style.background = '';
+            }, 2000);
+        }
+    }
+    
+    // Enhanced Social Share Analytics
+    document.querySelectorAll('.share-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const platform = this.classList.contains('twitter') ? 'twitter' :
+                           this.classList.contains('linkedin') ? 'linkedin' :
+                           this.classList.contains('email') ? 'email' : 'copy';
+            
+            console.log('📤 Share clicked:', platform);
+            
+            // Track with analytics if available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'share', {
+                    method: platform,
+                    content_type: 'article',
+                    content_id: '{{ .File.BaseFileName }}'
+                });
+            }
+        });
+    });
+    
+    // Smooth Scrolling for TOC Links
+    document.querySelectorAll('.toc-content a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            
+            if (target) {
+                const offset = 100; // Account for fixed header
+                const targetPosition = target.offsetTop - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+</script>
+{{ end }}

@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://outlieralphaventures.com/sitemap.xml
+
+# Allow important pages
+Allow: /about/
+Allow: /contact/
+Allow: /posts/
+Allow: /public-equity-investments/
+Allow: /sector-research/
+Allow: /philosophy-tech/
+Allow: /frameworks/
+Allow: /resources/
+
+# Disallow admin and development areas
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /themes/
+Disallow: /node_modules/
+Disallow: /.hugo_build.lock
+Disallow: /WORDPRESS_MIGRATION.md
+Disallow: /CONTENT_WORKFLOW.md
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Cache control directives for search engines
+# This is a high-value financial advisory website
+# Please crawl respectfully

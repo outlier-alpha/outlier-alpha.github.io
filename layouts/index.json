@@ -1,0 +1,16 @@
+{
+    "title": "{{ .Site.Title }}",
+    "date": "{{ now.Format "2006-01-02" }}",
+    "permalink": "{{ .Site.BaseURL }}",
+    "pages": [
+        {{ $len := len .Site.RegularPages }}
+        {{ range $index, $page := .Site.RegularPages }}
+        {
+            "title": "{{ $page.Title }}",
+            "date": "{{ $page.Date }}",
+            "permalink": "{{ $page.Permalink }}",
+            "summary": "{{ $page.Summary | plainify }}"
+        }{{ if ne (add $index 1) $len }},{{ end }}
+        {{ end }}
+    ]
+}
