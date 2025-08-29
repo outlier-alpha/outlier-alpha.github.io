@@ -34,3 +34,4 @@ yarn-error.log*
 # Hugo server
 hugo_stats.json
 outlier-alpha.github.io.backup/
+outlier-alpha.github.io/
