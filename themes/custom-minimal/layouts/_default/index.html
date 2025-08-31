@@ -1,0 +1,175 @@
+{{ define "main" }}
+  <!-- Hero Section -->
+  <section class="hero py-20 md:py-32 relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          Strategic Insights for <span class="text-gradient">Discerning Investors</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl">
+          Expert analysis and research on technology, finance, and emerging markets to help you make informed investment decisions.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/research" class="btn btn-primary">
+            Explore Research
+          </a>
+          <a href="/about" class="btn btn-outline">
+            Learn About Us
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 -z-10"></div>
+  </section>
+
+  <!-- Featured Posts -->
+  {{ $featured := where .Site.Pages "Params.featured" true | first 3 }}
+  {{ if $featured }}
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Research</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">In-depth analysis on emerging trends and investment opportunities</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{ range $index, $post := $featured }}
+        <article class="card hover:shadow-xl transition-all duration-300">
+          {{ if .Params.image }}
+          <div class="h-48 overflow-hidden">
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+          </div>
+          {{ end }}
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-2">
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+              <span class="mx-2">•</span>
+              <span>{{ .ReadingTime }} min read</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">
+              <a href="{{ .RelPermalink }}" class="hover:text-primary transition-colors">
+                {{ .Title }}
+              </a>
+            </h3>
+            <p class="text-gray-600 mb-4">{{ .Summary | truncate 150 }}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {{ range .Params.tags | first 3 }}
+              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="text-xs font-medium px-3 py-1 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
+                {{ . }}
+              </a>
+              {{ end }}
+            </div>
+            <a href="{{ .RelPermalink }}" class="text-primary font-medium inline-flex items-center group">
+              Read more
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="/research" class="btn btn-outline inline-flex items-center">
+          View All Research
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Categories Section -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Explore Topics</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Dive into our research across various domains and industries</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{ range first 6 .Site.Taxonomies.categories.ByCount }}
+        <a href="{{ "/categories/" | relLangURL }}{{ .Name | urlize }}" class="group">
+          <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow h-full border border-gray-100 hover:border-primary/10">
+            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+              {{ .Name | humanize }}
+            </h3>
+            <p class="text-gray-600 text-sm">{{ .Count }} articles</p>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Posts -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">Latest Insights</h2>
+          <p class="text-gray-600">Stay updated with our most recent research and analysis</p>
+        </div>
+        <a href="/blog" class="btn btn-outline mt-4 md:mt-0">View All Posts</a>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{ range first 6 (where .Site.RegularPages "Type" "posts") }}
+        <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          {{ if .Params.image }}
+          <div class="h-48 overflow-hidden">
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          {{ end }}
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-2">
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+              <span class="mx-2">•</span>
+              <span>{{ .ReadingTime }} min read</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 hover:text-primary transition-colors">
+              <a href="{{ .RelPermalink }}">
+                {{ .Title }}
+              </a>
+            </h3>
+            <p class="text-gray-600 mb-4">{{ .Summary | truncate 100 }}</p>
+            <a href="{{ .RelPermalink }}" class="text-primary font-medium inline-flex items-center group">
+              Read more
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to make smarter investment decisions?</h2>
+      <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+        Subscribe to our newsletter for exclusive research and market insights delivered straight to your inbox.
+      </p>
+      <div class="max-w-md mx-auto">
+        <form class="flex flex-col sm:flex-row gap-3">
+          <input type="email" placeholder="Enter your email" class="px-4 py-3 rounded-lg flex-grow text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary">
+          <button type="submit" class="btn bg-white text-primary hover:bg-gray-100 px-6 py-3 font-medium">
+            Subscribe
+          </button>
+        </form>
+        <p class="text-sm text-blue-100 mt-3">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
+    </div>
+  </section>
+{{ end }}

@@ -1,27 +1,56 @@
 #!/bin/bash
 
-# Usage: ./deploy_to_github.sh "Commit message"
+# Exit on error
+set -e
 
-# Set default commit message if not provided
-COMMIT_MESSAGE=${1:-"Update site content $(date +%Y-%m-%d)"}
+# Colors for output
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 
-# Ensure we're in the correct directory
-cd "$(dirname "$0")" || exit
+# Print header
+echo -e "${GREEN}🚀 Starting deployment process...${NC}"
+
+# Check if we're in the right directory
+if [ ! -f "config.toml" ]; then
+    echo "❌ Error: Run this script from your Hugo site's root directory"
+    exit 1
+fi
+
+# Get the latest changes from git
+echo -e "\n${GREEN}🔄 Pulling latest changes...${NC}"
+git pull
+
+# Install theme dependencies if needed
+if [ -f "package.json" ]; then
+    echo -e "\n${GREEN}📦 Installing Node.js dependencies...${NC}"
+    npm install
+fi
 
 # Build the site
-echo "Building site with Hugo..."
-hugo --minify
+echo -e "\n${GREEN}🔨 Building site...${NC}"
+hugo --minify --cleanDestinationDir
 
-# Add all changes to git
-echo "Committing changes to Git..."
-git add .
-git commit -m "$COMMIT_MESSAGE"
+# Check if build was successful
+if [ $? -ne 0 ]; then
+    echo "❌ Build failed. Please check the error messages above."
+    exit 1
+fi
 
-# Push to GitHub
-echo "Pushing to GitHub..."
-git push origin main
+# Show build size
+echo -e "\n${GREEN}📊 Build completed. Size of public directory:${NC}"
+du -sh public/
 
-echo "Deploy triggered! 🚀"
-echo "GitHub Actions will now build and deploy your site."
-echo "Your site should be live at https://outlieralpha.github.io in a few minutes."
-echo "Check deployment status at: https://github.com/outlieralpha/outlieralpha.github.io/actions"
+# Deploy to Netlify if netlify-cli is installed
+if command -v netlify &> /dev/null; then
+    echo -e "\n${GREEN}🚀 Deploying to Netlify...${NC}"
+    netlify deploy --prod
+else
+    echo -e "\n${GREEN}ℹ️  netlify-cli not found. You can deploy by pushing to your connected Git repository.${NC}"
+    echo "   Changes have been built to the 'public' directory."
+    echo "   To complete deployment, commit and push your changes:"
+    echo "   git add ."
+    echo "   git commit -m 'Update site content'"
+    echo "   git push origin main"
+fi
+
+echo -e "\n${GREEN}✅ Deployment process completed!${NC}"

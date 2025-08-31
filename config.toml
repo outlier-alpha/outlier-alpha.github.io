@@ -33,12 +33,12 @@ enableEmoji = true
   certifications = ["GARP FRM", "CFA Level II", "Bloomberg Certified"]
   
   # Contact Information
-  email = "hello@outlieralphaventures.com"
-  phone = "+1-XXX-XXX-XXXX"
+  email = "manoj@outlieralphaventures.com"
+  phone = "+91-XXX-XXX-XXXX"
   location = "Made in India 🇮🇳"
   
   # Analytics
-  googleAnalytics = "G-XXXXXXXXXX"
+  googleAnalytics = "G-67E2PP13EC"
   
   # Social links - Updated YouTube, Removed Advisory
   [[params.social]]
